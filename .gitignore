@@ -39,3 +39,4 @@ tmp/
 temp/
 /src/generated/prisma
 PRODUCTION_READINESS_REVIEW.md
+/src/generated/prisma
