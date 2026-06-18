@@ -11,6 +11,7 @@
     "esModuleInterop": true,
 
     "types": ["node"],
+    "typeRoots": ["./src/types", "./node_modules/@types"],
 
     "sourceMap": true,
     "skipLibCheck": true

@@ -18,3 +18,5 @@ export function generateToken(userId: number): string {
 export function verifyToken(token: string): JwtPayload | string {
   return jwt.verify(token, getSecret());
 }
+
+export { jwt };
