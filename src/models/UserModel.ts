@@ -2,11 +2,7 @@ import { prisma } from "../utils/prisma.js";
 
 export class UserModel {
   async findByEmail(email: string) {
-    const user = await prisma.users.findUnique({ where: { email: email } });
-    if (!user) {
-      throw new Error("user doesn't exist");
-    }
-    return user;
+    return prisma.users.findUnique({ where: { email: email } });
   }
 
   async delete(userId: number) {

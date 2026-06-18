@@ -6,9 +6,11 @@ const userModel = new UserModel();
 
 class AuthService {
   async login(email: string, password: string): Promise<LoginResponse> {
-    const user = await userModel.findByEmail(email).catch(() => {
+    const user = await userModel.findByEmail(email);
+
+    if (!user) {
       throw new Error("Invalid credentials");
-    });
+    }
 
     const correctPassword = await bcrypt.compare(password, user.password);
 
@@ -32,9 +34,11 @@ class AuthService {
     email: string,
     password: string,
   ): Promise<LoginResponse> {
-    const existing = await userModel.findByEmail(email).catch(() => {
+    const existing = await userModel.findByEmail(email);
+
+    if (existing) {
       throw new Error("Email already exists");
-    });
+    }
     const hashed = await bcrypt.hash(password, 10);
     const user = await userModel.create(username, email, hashed);
     const token = generateToken(user.id);
