@@ -32,14 +32,6 @@ class CartService {
     if (!cart) throw new Error("Cart not found");
     return cartModel.clearCart(cart.id);
   }
-
-  async getCart(userId: number) {
-    const cart = await cartModel.findByUserId(userId);
-    if (!cart) {
-      throw new Error("Cart not found");
-    }
-    return cart;
-  }
 }
 
 export default CartService;

@@ -7,7 +7,7 @@ class CartController {
   async getCart(req: Request, res: Response) {
     try {
       const userId = Number(req.user.id);
-      const cart = this.cartService.getCart(userId);
+      const cart = await this.cartService.getOrCreateCart(userId);
       return res.status(200).json(cart);
     } catch (error) {
       return res.status(500).json(error);

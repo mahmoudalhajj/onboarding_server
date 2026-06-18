@@ -14,7 +14,7 @@ router.post("/cart/items", (req, res) => {
   cartController.addItem(req, res);
 });
 
-router.delete("/cart/items", (req, res) => {
+router.delete("/cart/items/:itemId", (req, res) => {
   cartController.removeItem(req, res);
 });
 router.delete("/cart/clear", (req, res) => {
