@@ -10,8 +10,9 @@ function getSecret(): string {
   return secret;
 }
 export function generateToken(userId: number): string {
+  const expiresIn = process.env.JWT_EXPIRES_IN || "1h";
   return jwt.sign({ id: userId }, getSecret(), {
-    expiresIn: process.env.JWT_EXPIRES_IN as jwt.SignOptions["expiresIn"],
+    expiresIn: expiresIn as SignOptions["expiresIn"],
   });
 }
 
