@@ -1,5 +1,4 @@
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
 import { generateToken } from "../utils/jwt";
 import { UserModel } from "../models/UserModel";
 import { LoginResponse } from "../types/LoginResponse";
